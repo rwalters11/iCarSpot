@@ -21,6 +21,8 @@ class CarSpotterServiceManager : NSObject {
     private let serviceAdvertiser : MCNearbyServiceAdvertiser
     private let serviceBrowser : MCNearbyServiceBrowser
     
+    var delegate : CarSpotterServiceManagerDelegate?
+    
     override init() {
         self.serviceAdvertiser = MCNearbyServiceAdvertiser(peer: myPeerId, discoveryInfo: nil, serviceType: CarSpotterServiceType)
         self.serviceBrowser = MCNearbyServiceBrowser(peer: myPeerId, serviceType: CarSpotterServiceType)
@@ -40,11 +42,26 @@ class CarSpotterServiceManager : NSObject {
     }
     
     lazy var session : MCSession = {
+        
         let session = MCSession(peer: self.myPeerId, securityIdentity: nil, encryptionPreference: .required)
-        session.delegate = self as? MCSessionDelegate
+        session.delegate = self as MCSessionDelegate
+        
         return session
     }()
     
+    func send(colorName : String) {
+        NSLog("%@", "sendColor: \(colorName) to \(session.connectedPeers.count) peers")
+        
+        if session.connectedPeers.count > 0 {
+            do {
+                try self.session.send(colorName.data(using: .utf8)!, toPeers: session.connectedPeers, with: .reliable)
+            }
+            catch let error {
+                NSLog("%@", "Error for sending: \(error)")
+            }
+        }
+        
+    }
 }
 
 extension CarSpotterServiceManager : MCNearbyServiceAdvertiserDelegate {
@@ -79,13 +96,15 @@ extension CarSpotterServiceManager : MCNearbyServiceBrowserDelegate {
 
 extension CarSpotterServiceManager : MCSessionDelegate {
     
-    func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
-        NSLog("%@", "peer \(peerID) didChangeState: \(state)")
+    func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {NSLog("%@", "peer \(peerID) didChangeState: \(state)")
+        self.delegate?.connectedDevicesChanged(manager: self, connectedDevices: session.connectedPeers.map{$0.displayName})
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         NSLog("%@", "didReceiveData: \(data)")
-    }
+        let str = String(data: data, encoding: .utf8)!
+        self.delegate?.colorChanged(manager: self, colorString: str)
+}
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
         NSLog("%@", "didReceiveStream")
@@ -98,5 +117,12 @@ extension CarSpotterServiceManager : MCSessionDelegate {
     func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL, withError error: Error?) {
         NSLog("%@", "didFinishReceivingResourceWithName")
     }
+    
+}
+
+protocol CarSpotterServiceManagerDelegate {
+    
+    func connectedDevicesChanged(manager : CarSpotterServiceManager, connectedDevices: [String])
+    func colorChanged(manager : CarSpotterServiceManager, colorString: String)
     
 }
