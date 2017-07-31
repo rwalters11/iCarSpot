@@ -64,6 +64,7 @@
 				D390DC551F2F773C00BDF548 /* CarSpotter */,
 				D390DC6D1F2F773D00BDF548 /* CarSpotterTests */,
 				D390DC541F2F773C00BDF548 /* Products */,
+				D390DC791F2F776D00BDF548 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +98,13 @@
 				D390DC701F2F773D00BDF548 /* Info.plist */,
 			);
 			path = CarSpotterTests;
+			sourceTree = "<group>";
+		};
+		D390DC791F2F776D00BDF548 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +159,11 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = TT43E74VM4;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					D390DC691F2F773D00BDF548 = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -352,6 +365,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TBGweb.CarSpotter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -365,6 +379,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TBGweb.CarSpotter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
