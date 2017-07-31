@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		83B59DCD631497DCEC2ECC51 /* Pods_CarSpotterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51234CF5E98883E2C46527CD /* Pods_CarSpotterTests.framework */; };
 		91B2C73D13FC6009D4CE6612 /* Pods_CarSpotter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398869347951B6DC50C45720 /* Pods_CarSpotter.framework */; };
+		D31225D71F2F872400F430EA /* functionLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31225D61F2F872400F430EA /* functionLibrary.swift */; };
+		D31225D91F2F92D900F430EA /* CarSpotterServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31225D81F2F92D900F430EA /* CarSpotterServiceManager.swift */; };
 		D390DC571F2F773C00BDF548 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D390DC561F2F773C00BDF548 /* AppDelegate.swift */; };
-		D390DC591F2F773C00BDF548 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D390DC581F2F773C00BDF548 /* ViewController.swift */; };
+		D390DC591F2F773C00BDF548 /* CarSpotterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D390DC581F2F773C00BDF548 /* CarSpotterViewController.swift */; };
 		D390DC5C1F2F773C00BDF548 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D390DC5A1F2F773C00BDF548 /* Main.storyboard */; };
 		D390DC5F1F2F773C00BDF548 /* CarSpotter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D390DC5D1F2F773C00BDF548 /* CarSpotter.xcdatamodeld */; };
 		D390DC611F2F773C00BDF548 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D390DC601F2F773C00BDF548 /* Assets.xcassets */; };
@@ -35,9 +37,11 @@
 		70C5F5603603821E0F831F92 /* Pods-CarSpotter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarSpotter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarSpotter/Pods-CarSpotter.debug.xcconfig"; sourceTree = "<group>"; };
 		A1E92CFA5323A95EE209ED6C /* Pods-CarSpotter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarSpotter.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarSpotter/Pods-CarSpotter.release.xcconfig"; sourceTree = "<group>"; };
 		C1844D1FBAE07E3453DC1E6E /* Pods-CarSpotterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarSpotterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarSpotterTests/Pods-CarSpotterTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D31225D61F2F872400F430EA /* functionLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = functionLibrary.swift; path = ../../../Common_Library/functionLibrary.swift; sourceTree = "<group>"; };
+		D31225D81F2F92D900F430EA /* CarSpotterServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarSpotterServiceManager.swift; sourceTree = "<group>"; };
 		D390DC531F2F773C00BDF548 /* CarSpotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarSpotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D390DC561F2F773C00BDF548 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D390DC581F2F773C00BDF548 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D390DC581F2F773C00BDF548 /* CarSpotterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarSpotterViewController.swift; sourceTree = "<group>"; };
 		D390DC5B1F2F773C00BDF548 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D390DC5E1F2F773C00BDF548 /* CarSpotter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CarSpotter.xcdatamodel; sourceTree = "<group>"; };
 		D390DC601F2F773C00BDF548 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,13 +106,15 @@
 		D390DC551F2F773C00BDF548 /* CarSpotter */ = {
 			isa = PBXGroup;
 			children = (
+				D31225D61F2F872400F430EA /* functionLibrary.swift */,
 				D390DC561F2F773C00BDF548 /* AppDelegate.swift */,
-				D390DC581F2F773C00BDF548 /* ViewController.swift */,
+				D390DC581F2F773C00BDF548 /* CarSpotterViewController.swift */,
 				D390DC5A1F2F773C00BDF548 /* Main.storyboard */,
 				D390DC601F2F773C00BDF548 /* Assets.xcassets */,
 				D390DC621F2F773C00BDF548 /* LaunchScreen.storyboard */,
 				D390DC651F2F773C00BDF548 /* Info.plist */,
 				D390DC5D1F2F773C00BDF548 /* CarSpotter.xcdatamodeld */,
+				D31225D81F2F92D900F430EA /* CarSpotterServiceManager.swift */,
 			);
 			path = CarSpotter;
 			sourceTree = "<group>";
@@ -340,9 +346,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D390DC591F2F773C00BDF548 /* ViewController.swift in Sources */,
+				D390DC591F2F773C00BDF548 /* CarSpotterViewController.swift in Sources */,
 				D390DC5F1F2F773C00BDF548 /* CarSpotter.xcdatamodeld in Sources */,
+				D31225D91F2F92D900F430EA /* CarSpotterServiceManager.swift in Sources */,
 				D390DC571F2F773C00BDF548 /* AppDelegate.swift in Sources */,
+				D31225D71F2F872400F430EA /* functionLibrary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,6 +568,7 @@
 				D390DC751F2F773D00BDF548 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D390DC761F2F773D00BDF548 /* Build configuration list for PBXNativeTarget "CarSpotterTests" */ = {
 			isa = XCConfigurationList;
@@ -568,6 +577,7 @@
 				D390DC781F2F773D00BDF548 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

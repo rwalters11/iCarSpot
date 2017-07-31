@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CarSpotterViewController.swift
 //  CarSpotter
 //
 //  Created by Richard Walters on 31/07/2017.
@@ -8,7 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CarSpotterViewController: UIViewController {
+    
+    // Create service manager to advertise active app over Bluetooth and/or WiFi
+    let carSpotterService = CarSpotterServiceManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
